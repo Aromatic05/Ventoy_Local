@@ -102,6 +102,21 @@ get_ventoy_disk_name() {
     fi
 }
 
+# Packed ventoy_os_param: GUID (16), checksum (1), disk GUID (16), disk size (8).
+get_ventoy_iso_part_id() {
+    $BUSYBOX_PATH/hexdump -n 2 -s 41 -e '1/2 "%u"' "$VTOY_PATH/ventoy_os_param"
+}
+
+get_ventoy_iso_part_device() {
+    vtIsoDisk=$1
+    vtIsoPartId=$(get_ventoy_iso_part_id)
+    if echo "$vtIsoDisk" | $EGREP -q "nvme|mmc|nbd"; then
+        echo "${vtIsoDisk}p${vtIsoPartId}"
+    else
+        echo "${vtIsoDisk}${vtIsoPartId}"
+    fi
+}
+
 get_ventoy_iso_name() {
     line=$($VTOY_PATH/tool/vtoydump -f /ventoy/ventoy_os_param)
     if [ $? -eq 0 ]; then
@@ -117,13 +132,9 @@ wait_for_usb_disk_ready() {
         usb_disk=$(get_ventoy_disk_name)
         vtlog "wait_for_usb_disk_ready $usb_disk ..."
         
-        if echo $usb_disk | $EGREP -q "nvme|mmc|nbd"; then
-            vtpart2=${usb_disk}p2
-        else
-            vtpart2=${usb_disk}2
-        fi
-        
-        if [ -e "${vtpart2}" ]; then
+        vtIsoPartDevice=$(get_ventoy_iso_part_device "$usb_disk")
+
+        if [ -e "$vtIsoPartDevice" ]; then
             vtlog "wait_for_usb_disk_ready $usb_disk finish"
             break
         else
@@ -140,13 +151,7 @@ wait_for_usb_disk_ready() {
 
 
 check_usb_disk_ready() {
-    if echo $1 | $EGREP -q "nvme|mmc|nbd"; then
-        vtpart2=${1}p2
-    else
-        vtpart2=${1}2
-    fi
-    
-    [ -e "${vtpart2}" ]
+    [ -e "$(get_ventoy_iso_part_device "$1")" ]
 }
 
 not_ventoy_disk() {
@@ -597,10 +602,11 @@ ventoy_create_persistent_link() {
 }
 
 ventoy_partname_to_diskname() {
-    if echo $1 | $EGREP -q "nvme.*p[0-9]$|mmc.*p[0-9]$|nbd.*p[0-9]$"; then
-        echo -n "${1:0:-2}"    
+    vtPartDisk=$(echo "$1" | $SED 's/[0-9][0-9]*$//')
+    if echo "$vtPartDisk" | $EGREP -q 'nvme.*p$|mmc.*p$|nbd.*p$'; then
+        echo "${vtPartDisk%p}"
     else
-        echo -n "${1:0:-1}"
+        echo "$vtPartDisk"
     fi
 }
 
@@ -612,12 +618,8 @@ ventoy_diskname_to_partname() {
     fi
 }
 
-ventoy_udev_disk_common_hook() {    
-    if echo $1 | $EGREP -q "nvme.*p[0-9]$|mmc.*p[0-9]$|nbd.*p[0-9]$"; then
-        VTDISK="${1:0:-2}"    
-    else
-        VTDISK="${1:0:-1}"
-    fi
+ventoy_udev_disk_common_hook() {
+    VTDISK=$(ventoy_partname_to_diskname "$1")
     
     if [ -e /vtoy/vtoy ]; then
         VTRWMOD=""
@@ -663,11 +665,7 @@ ventoy_udev_disk_common_hook() {
 }
 
 ventoy_create_wrapper_dm() {
-    if echo $1 | $EGREP -q "nvme.*p[0-9]$|mmc.*p[0-9]$|nbd.*p[0-9]$"; then
-        VTDISK="${1:0:-2}"    
-    else
-        VTDISK="${1:0:-1}"
-    fi
+    VTDISK=$(ventoy_partname_to_diskname "$1")
 
     if [ -e /vtoy/vtoy ]; then
         VTRWMOD=""
@@ -945,22 +943,18 @@ ventoy_mount_iso_part() {
     
     mkdir -p $vtMnt
 
-    if echo $vtDisk | $EGREP -q "nvme|mmc|nbd"; then
-        vtpart1=${vtDisk}p1
-    else
-        vtpart1=${vtDisk}1
-    fi
+    vtIsoPartDevice=$(get_ventoy_iso_part_device "$vtDisk")
 
     vtFS=$($VTOY_PATH/tool/vtoydump -s /ventoy/ventoy_os_param)    
     if [ "$vtFS" = "ntfs" ]; then
-        vtlog "mount -t ntfs3 $vtpart1 $vtMnt"
-        mount -t ntfs3 $vtpart1 $vtMnt >> $VTLOG 2>&1
+        vtlog "mount -t ntfs3 $vtIsoPartDevice $vtMnt"
+        mount -t ntfs3 $vtIsoPartDevice $vtMnt >> $VTLOG 2>&1
     elif [ "$vtFS" = "fat" ]; then
-        vtlog "mount -t vfat $vtpart1 $vtMnt"
-        mount -t vfat $vtpart1 $vtMnt >> $VTLOG 2>&1
+        vtlog "mount -t vfat $vtIsoPartDevice $vtMnt"
+        mount -t vfat $vtIsoPartDevice $vtMnt >> $VTLOG 2>&1
     else
-        vtlog "mount $vtpart1 $vtMnt"
-        mount $vtpart1 $vtMnt >> $VTLOG 2>&1
+        vtlog "mount $vtIsoPartDevice $vtMnt"
+        mount $vtIsoPartDevice $vtMnt >> $VTLOG 2>&1
     fi
 }
 
