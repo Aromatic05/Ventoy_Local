@@ -188,3 +188,4 @@ rm -rf $tmpmnt
 
 rm -f log.txt
 rm -f sha256.txt
+sha256sum "ventoy-${curver}.tar.gz" > sha256.txt
