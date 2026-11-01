@@ -1,149 +1,113 @@
-<h1 align="center">
-  <a href=https://www.ventoy.net/>Ventoy</a>
-</h1>
+# Ventoy_Local - 自定义分区格式与部署的引导工具
 
-<p align="center">
-  <img src="https://img.shields.io/github/release/ventoy/Ventoy.svg?style=for-the-badge">
-  <img src="https://img.shields.io/github/license/ventoy/Ventoy?style=for-the-badge">
-  <img src="https://img.shields.io/github/stars/ventoy/Ventoy?style=for-the-badge">
-  <img src="https://img.shields.io/github/downloads/ventoy/Ventoy/total.svg?style=for-the-badge">
-  <img src="https://img.shields.io/github/actions/workflow/status/ventoy/Ventoy/ci.yml?label=actions&logo=github&style=for-the-badge">
-</p>
+> 原版 Ventoy 项目说明：[README_Upstream.md](README_Upstream.md)（保留原始 README）。
 
-<h4 align="left">
-Ventoy is an open source tool to create bootable USB drive for ISO/WIM/IMG/VHD(x)/EFI files. <br/>
-With Ventoy, you don't need to format the disk over and over, just copy the image files to the USB drive and boot them.   
-You can copy many image files at a time and Ventoy will give you a boot menu to select them. <br/> 
-You can also browse ISO/WIM/IMG/VHD(x)/EFI files in local disk and boot them.<br/>
-x86 Legacy BIOS, IA32 UEFI, x86_64 UEFI, ARM64 UEFI and MIPS64EL UEFI are supported in the same way.<br/>
-Both MBR and GPT partition style are supported in the same way.<br/>
-Most type of OS supported(Windows/WinPE/Linux/Unix/ChromeOS/Vmware/Xen...) <br/>
-  1300+ ISO files are tested (<a href="https://www.ventoy.net/en/isolist.html">List</a>). 90%+ distros in <a href="https://distrowatch.com/">distrowatch.com</a> supported (<a href="https://www.ventoy.net/en/distrowatch.html">Details</a>). <br/>
-<br/>Official Website: <a href=https://www.ventoy.net>https://www.ventoy.net</a>
-</h4>
+[![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
-# Tested OS
-**Windows**  
-Windows 7, Windows 8, Windows 8.1, Windows 10, Windows 11, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2019, Windows Server 2022, Windows Server 2025, WinPE
+## 项目简介
 
-**Linux**  
-Debian, Ubuntu, CentOS(6/7/8/9/10), RHEL(6/7/8/9/10), Deepin, Fedora, Rocky Linux, AlmaLinux, EuroLinux(6/7/8/9), openEuler, OpenAnolis, SLES, openSUSE, MX Linux, Manjaro, Linux Mint, Endless OS, Elementary OS, Solus, Linx, Zorin, antiX, PClinuxOS, Arch, ArcoLinux, ArchLabs, BlackArch, Obarun, Artix Linux, Puppy Linux, Tails, Slax, Kali, Mageia, Slackware, Q4OS, Archman, Gentoo, Pentoo, NixOS, Kylin, openKylin, Ubuntu Kylin, KylinSec, Lubuntu, Xubuntu, Kubuntu, Ubuntu MATE, Ubuntu Budgie, Ubuntu Studio, Bluestar, OpenMandriva, ExTiX, Netrunner, ALT Linux, Nitrux, Peppermint, KDE neon, Linux Lite, Parrot OS, Qubes, Pop OS, ROSA, Void Linux, Star Linux, EndeavourOS, MakuluLinux, Voyager, Feren, ArchBang, LXLE, Knoppix, Calculate Linux, Clear Linux, Pure OS, Oracle Linux, Trident, Septor, Porteus, Devuan, GoboLinux, 4MLinux, Simplicity Linux, Zeroshell, Android-x86, netboot.xyz, Slitaz, SuperGrub2Disk, Proxmox VE, Kaspersky Rescue, SystemRescueCD, MemTest86, MemTest86+, MiniTool Partition Wizard, Parted Magic, veket, Sabayon, Scientific, alpine, ClearOS, CloneZilla, Berry Linux, Trisquel, Ataraxia Linux, Minimal Linux Live, BackBox Linux, Emmabuntüs, ESET SysRescue Live,Nova Linux, AV Linux, RoboLinux, NuTyX, IPFire, SELKS, ZStack, Enso Linux, Security Onion, Network Security Toolkit, Absolute Linux, TinyCore, Springdale Linux, Frost Linux, Shark Linux, LinuxFX, Snail Linux, Astra Linux, Namib Linux, Resilient Linux, Virage Linux, Blackweb Security OS, R-DriveImage, O-O.DiskImage, Macrium, ToOpPy LINUX, GNU Guix, YunoHost, foxclone, siduction, Adelie Linux, Elive, Pardus, CDlinux, AcademiX, Austrumi, Zenwalk, Anarchy, DuZeru, BigLinux, OpenMediaVault, Ubuntu DP, Exe GNU/Linux, 3CX Phone System, KANOTIX, Grml, Karoshi, PrimTux, ArchStrike, CAELinux, Cucumber, Fatdog, ForLEx, Hanthana, Kwort, MiniNo, Redcore, Runtu, Asianux, Clu Linux Live, Uruk, OB2D, BlueOnyx, Finnix, HamoniKR, Parabola, LinHES, LinuxConsole, BEE free, Untangle, Pearl, Thinstation, TurnKey, tuxtrans, Neptune, HefftorLinux, GeckoLinux, Mabox Linux, Zentyal, Maui, Reborn OS, SereneLinux , SkyWave Linux, Kaisen Linux, Regata OS, TROM-Jaro, DRBL Linux, Chalet OS, Chapeau, Desa OS, BlankOn, OpenMamba, Frugalware, Kibojoe Linux, Revenge OS, Tsurugi Linux, Drauger OS, Hash Linux, gNewSense, Ikki Boot, SteamOS, Hyperbola, VyOS, EasyNAS, SuperGamer, Live Raizo, Swift Linux, RebeccaBlackOS, Daphile, CRUX, Univention, Ufficio Zero, Rescuezilla, Phoenix OS, Garuda Linux, Mll, NethServer, OSGeoLive, Easy OS, Volumio, FreedomBox, paldo, UBOS, Recalbox, batocera, Lakka, LibreELEC, Pardus Topluluk, Pinguy, KolibriOS, Elastix, Arya, Omoikane, Omarine, Endian Firewall, Hamara, Rocks Cluster, MorpheusArch, Redo, Slackel, SME Server, APODIO, Smoothwall, Dragora, Linspire, Secure-K OS, Peach OSI, Photon, Plamo, SuperX, Bicom, Ploplinux, HP SPP, LliureX, Freespire, DietPi, BOSS, Webconverger, Lunar, TENS, Source Mage, RancherOS, T2, Vine, Pisi, blackPanther, mAid, Acronis, Active.Boot, AOMEI, Boot.Repair, CAINE, DaRT, EasyUEFI, R-Drive, PrimeOS, Avira Rescue System, bitdefender, Checkra1n Linux, Lenovo Diagnostics, Clover, Bliss-OS, Lenovo BIOS Update, Arcabit Rescue Disk, MiyoLinux, TeLOS, Kerio Control, RED OS, OpenWrt, MocaccinoOS, EasyStartup, Pyabr, Refracta, Eset SysRescue, Linpack Xtreme, Archcraft, NHVBOOT, pearOS, SeaTools, Easy Recovery Essentional, iKuai, StorageCraft SCRE, ZFSBootMenu, TROMjaro, BunsenLabs, Todo en Uno, ChallengerOS, Nobara, Holo, CachyOS, Peux OS, Vanilla OS, ShredOS, paladin, Palen1x, dban, ReviOS, HelenOS, XeroLinux, Tiny 11, chimera linux, CuteFish, DragonOs, Rhino Linux, vanilladpup, crystal, IGELOS, MiniOS, gnoppix, PikaOS, UwUntu, Noble, PocketHandyBox, DiskGenius, Commodore, Talos, Shebang Linux, hrmpf, Bazzite, ManualLinux, nyarchlinux, ultramarine, TempleOS, bluefin, Damn Small Linux, Kicksecure, SerentiyOS, AerynOS, ......
+本项目是基于 [Ventoy](https://www.ventoy.net/) 的修改版本，主要针对分区格式和部署方式进行了自定义调整。以下是主要的修改内容：
 
-**Unix**  
-DragonFly, FreeBSD, pfSense, OPNsense, GhostBSD, FreeNAS, TrueNAS, XigmaNAS, FuryBSD, HardenedBSD, MidnightBSD, ClonOS, EmergencyBootKit, helloSystem
+当前源码已同步上游 Ventoy **1.1.18**（2026-10-09）；CI 打包沿用 `INSTALL/grub/grub.cfg` 中的版本，不再使用时间戳替换。此前已验收的 Release 与本次源码升级相互独立。
 
-**ChromeOS**  
-FydeOS, CloudReady, ChromeOS Flex, ThoriumOS
+1. **移除了对分区格式的强制要求**：原版 Ventoy 对分区格式有严格限制，本版本允许在更多分区格式上使用。
+2. **默认使用第一分区、允许独立指定来源**：保留原有部署默认值，GRUB 菜单可分别指定 ISO 所在分区和 Ventoy 运行资源目录。
+3. **去除了对引导扇区的校验**：原版 Ventoy 会对引导扇区进行校验，本版本移除了这一限制，允许更灵活的手动部署。
+4. **支持手动部署**：用户可以根据需求手动部署 Ventoy，而无需依赖自动化工具。
 
-**Other**  
-VMware ESXi, Citrix XenServer, Xen XCP-ng
+## 适用场景
 
+- 需要在非标准分区格式上使用 Ventoy。
+- 需要在第一分区以外放置 ISO 或运行资源。
+- 需要手动控制 Ventoy 的部署过程。
+- 对引导扇区有特殊需求的用户。
 
-# Tested Image Report
-[【How to report a successfully tested image file】](https://github.com/ventoy/Ventoy/issues/1195)
+## 使用方法
 
-# Ventoy Browser
-With Ventoy, you can also browse ISO/WIM/IMG/VHD(x)/EFI files in local disk and boot them. [Notes](https://www.ventoy.net/en/doc_browser.html)
-  
-# VentoyPlugson
-A GUI Ventoy plugin configurator. [VentoyPlugson](https://www.ventoy.net/en/plugin_plugson.html)
+### 1. 克隆本仓库
 
-# Features
-* 100% open source
-* Simple to use
-* Fast (limited only by the speed of copying iso file)
-* Can be installed in USB/Local Disk/SSD/NVMe/SD Card
-* Directly boot from ISO/WIM/IMG/VHD(x)/EFI files, no extraction needed
-* Support to browse and boot ISO/WIM/IMG/VHD(x)/EFI files in local disk
-* No need to be continuous in disk for ISO/WIM/IMG/VHD(x)/EFI files
-* MBR and GPT partition style supported (1.0.15+)
-* x86 Legacy BIOS, IA32 UEFI, x86_64 UEFI, ARM64 UEFI, MIPS64EL UEFI supported
-* IA32/x86_64 UEFI Secure Boot supported (1.0.07+)
-* Linux Persistence supported (1.0.11+)
-* Windows auto installation supported (1.0.09+)
-* Linux auto installation supported (1.0.09+)
-* Variables Expansion supported for Windows/Linux auto installation script
-* FAT32/exFAT/NTFS/UDF/XFS/Btrfs/Ext2(3)(4) supported for main partition
-* ISO files larger than 4GB supported
-* Menu alias, Menu tip message supported
-* Password protect supported
-* Native boot menu style for Legacy & UEFI
-* Most types of OS supported, 1300+ iso files tested
-* Linux vDisk boot supported
-* Not only boot but also complete installation process
-* Menu dynamically switchable between List/TreeView mode
-* "Ventoy Compatible" concept
-* Plugin Framework and GUI plugin configurator
-* Injection files to runtime environment
-* Boot configuration file dynamically replacement
-* Highly customizable theme and menu
-* USB drive write-protected support
-* USB normal use unaffected
-* Data nondestructive during version upgrade
-* No need to update Ventoy when a new distro is released
+```bash
+git clone https://github.com/symwww/Ventoy_Local.git
+cd Ventoy_Local
+```
 
-![avatar](https://www.ventoy.net/static/img/screen/screen_uefi.png)
+### 2. 按照Ventoy官方版构建
 
+得到ventoy.img.xz后解压得到ventoy本体。未指定额外变量时仍按原有第一分区默认方式部署。
 
-# Installation Instructions
-See [https://www.ventoy.net/en/doc_start.html](https://www.ventoy.net/en/doc_start.html) for detailed instructions. 
+EFI/BOOT/grubia32_real.efi
 
-# Compile Instructions
-Please refer to [BuildVentoyFromSource.txt](DOC/BuildVentoyFromSource.txt)
+EFI/BOOT/grubx64_real.efi
 
-# Document
-Title | Link
--|-
-**Install & Update** | [https://www.ventoy.net/en/doc_start.html](https://www.ventoy.net/en/doc_start.html)
-**Browse/Boot Files In Local Disk** | [https://www.ventoy.net/en/doc_browser.html](https://www.ventoy.net/en/doc_browser.html)
-**Secure Boot** | [https://www.ventoy.net/en/doc_secure.html](https://www.ventoy.net/en/doc_secure.html)
-**Customize Theme** | [https://www.ventoy.net/en/plugin_theme.html](https://www.ventoy.net/en/plugin_theme.html)  
-**Global Control** | [https://www.ventoy.net/en/plugin_control.html](https://www.ventoy.net/en/plugin_control.html)  
-**Image List** | [https://www.ventoy.net/en/plugin_imagelist.html](https://www.ventoy.net/en/plugin_imagelist.html)  
-**Auto Installation** | [https://www.ventoy.net/en/plugin_autoinstall.html](https://www.ventoy.net/en/plugin_autoinstall.html)  
-**Injection Plugin** | [https://www.ventoy.net/en/plugin_injection.html](https://www.ventoy.net/en/plugin_injection.html)  
-**Persistence Support** | [https://www.ventoy.net/en/plugin_persistence.html](https://www.ventoy.net/en/plugin_persistence.html)  
-**Boot WIM file** | [https://www.ventoy.net/en/plugin_wimboot.html](https://www.ventoy.net/en/plugin_wimboot.html)  
-**Windows VHD Boot** | [https://www.ventoy.net/en/plugin_vhdboot.html](https://www.ventoy.net/en/plugin_vhdboot.html)  
-**Linux vDisk Boot** | [https://www.ventoy.net/en/plugin_vtoyboot.html](https://www.ventoy.net/en/plugin_vtoyboot.html)  
-**DUD Plugin** | [https://www.ventoy.net/en/plugin_dud.html](https://www.ventoy.net/en/plugin_dud.html)  
-**Password Plugin** | [https://www.ventoy.net/en/plugin_password.html](https://www.ventoy.net/en/plugin_password.html)  
-**Conf Replace Plugin** | [https://www.ventoy.net/en/plugin_bootconf_replace.html](https://www.ventoy.net/en/plugin_bootconf_replace.html)  
-**Menu Class** | [https://www.ventoy.net/en/plugin_menuclass.html](https://www.ventoy.net/en/plugin_menuclass.html)  
-**Menu Alias** | [https://www.ventoy.net/en/plugin_menualias.html](https://www.ventoy.net/en/plugin_menualias.html)  
-**Menu Extension** | [https://www.ventoy.net/en/plugin_grubmenu.html](https://www.ventoy.net/en/plugin_grubmenu.html)  
-**Memdisk Mode** | [https://www.ventoy.net/en/doc_memdisk.html](https://www.ventoy.net/en/doc_memdisk.html)  
-**TreeView Mode** | [https://www.ventoy.net/en/doc_treeview.html](https://www.ventoy.net/en/doc_treeview.html)  
-**Disk Layout MBR** | [https://www.ventoy.net/en/doc_disk_layout.html](https://www.ventoy.net/en/doc_disk_layout.html)  
-**Disk Layout GPT** | [https://www.ventoy.net/en/doc_disk_layout_gpt.html](https://www.ventoy.net/en/doc_disk_layout_gpt.html)  
-**Search Configuration** | [https://www.ventoy.net/en/doc_search_path.html](https://www.ventoy.net/en/doc_search_path.html)
+分别为32/64位下的UEFI引导文件。
 
+grub/i386-pc/core.img
 
-# FAQ
-See [https://www.ventoy.net/en/faq.html](https://www.ventoy.net/en/faq.html) for detail
+为LeagcyBIOS下的引导文件，请自行使用。
 
+### 3. 独立指定 ISO 与运行资源（源码开发版）
 
-# Forum
-[https://forums.ventoy.net](https://forums.ventoy.net)
+以下是进入特别版 `grub.cfg` 之前设置的 GRUB 环境变量示例（不是系统命令行参数）：
 
-# Donation
-It would be much appreciated if you want to make a small donation to support my work!  
-Alipay, WeChat Pay, PayPal and Bitcoin are available for donation. You can choose any of them.  
+```grub
+set VTOY_ISO_SOURCE='(hd2,gpt4)'
+set VTOY_RUNTIME_PATH='(hd0,gpt1)/ventoy'
+export VTOY_ISO_SOURCE VTOY_RUNTIME_PATH
+configfile (hd0,gpt1)/grub/grub.cfg
+```
 
-Alipay | WeChat Pay
--|-
-<img src="https://www.ventoy.net/static/img/AliPay.png" width="250" height="250">|<img src="https://www.ventoy.net/static/img/WeChatPay.png" width="250" height="250">
+- `VTOY_ISO_SOURCE` 是 ISO 文件所在分区，`grub.cfg` 会以它作为初始浏览和菜单扫描位置；不指定时保持原有默认值。交互式磁盘浏览器仍可选择其他分区。
+- `VTOY_RUNTIME_PATH` 是包含 `ventoy.cpio`、`ventoy_x64.efi`、`iso9660_x64.efi` 等运行文件的目录，允许与 ISO 分区不同；不指定时使用原有启动位置。
+- 对需要额外 EFI 文件系统驱动的启动模式，显式指定来源后由 GRUB 从 Runtime 目录将驱动加载至内存，再交给 EFI Consumer。BIOS 入口仍需遵守平台自身的加载条件。
+- 源码中的 512 字节 `ventoy_os_param` 结构没有改变；磁盘识别维持 GUID、MBR Signature、容量的尽力而为查找，但歧义未消除时拒绝随意选择磁盘。
+- 以上功能目前仅完成源码修改和静态检查，不代表已通过完整构建、QEMU 或实机启动验收；已验收的二进制 Release 不受本轮代码修改影响。
 
-**PayPal**  
-You can transfer to my paypal account `admin@ventoy.net` or just click [https://www.paypal.me/ventoy](https://www.paypal.me/ventoy)  
+## 改动内容
 
-**Bitcoin**  
-Bitcoin Address `19mZDWzZgzkHCi9YX9H3fYCUuCHq3W6wfT`
+```c
+// GRUB2/MOD_SRC/grub-2.04/grub-core/ventoy/ventoy_browser.c 
+static int ventoy_browser_iterate_partition(struct grub_disk *disk, const grub_partition_t partition, void *data);
 
+// GRUB2/MOD_SRC/grub-2.04/grub-core/ventoy/ventoy_cmd.c
+static int ventoy_set_check_result(int ret, const char *msg);
+static int ventoy_check_official_device(grub_device_t dev);
+    // 以及调整一些 VTOY_CMD_CHECK(1);
 
+// EDK2/edk2_mod/edk2-edk2-stable201911/MdeModulePkg/Application/Ventoy/Ventoy.c
+STATIC VOID ventoy_warn_invalid_device(VOID);
+STATIC EFI_STATUS EFIAPI ventoy_find_iso_disk(IN EFI_HANDLE ImageHandle);
+STATIC EFI_STATUS EFIAPI ventoy_parse_cmdline(IN EFI_HANDLE ImageHandle);
 
+// Patch vtoyjump (required for Windows/WinPE ISOs)
+// vtoyjump/vtoyjump/vtoyjump.c
+static int DecompressInjectionArchive(const char *archive, DWORD PhyDrive);
+static BOOL CheckVentoyDisk(DWORD DiskNum);
+static int VentoyHook(ventoy_os_param *param);
+ if (DiskSig == VtoySig) //  && VtoyDiskExtent.StartingOffset.QuadPart == SIZE_1MB
+ {
+     Log("Ventoy Disk Sig match");
+     vtoyfind = TRUE;
+     break;
+ }
 
+// Patch vtoyjump (required for Linux ISOs)
+// VtoyTool/vtoydump.c
+static int vtoy_vlnk_printf(ventoy_os_param *param, char *diskname);
+static int vtoy_print_os_param(ventoy_os_param *param, char *diskname);
+    // 已移除仅用于诊断的第一分区大小检查；改为使用独立磁盘身份匹配。
+```
 
+## 注意事项
 
+- 本版本不强制使用 Ventoy 原版分区布局。引导固件自身的 BIOS/UEFI 约束仍然有效。
+- 手动部署需要一定的技术知识，请谨慎操作。
+- 本版本基于 Ventoy 原版代码修改，可能存在未测试的边缘情况。
 
+## 已知问题
 
+- 多磁盘同时复制了 GUID / MBR Signature，且容量等信息也无法消歧时，可能无法自动定位 ISO 所在磁盘；不会随意选择其中一个。
+
+## 致谢
+
+- 感谢 [Ventoy](https://www.ventoy.net/) 项目的开发者提供了优秀的开源工具。
+- 感谢所有贡献者和用户的支持。
