@@ -11,7 +11,7 @@ build_bios() {
     fi
 
     rm -f ../../../INSTALL/ventoy/ipxe.krn
-    xorriso -osirrox on -indev bin/ipxe.iso -extract /ipxe.krn ../../../INSTALL/ventoy/ipxe.krn >/dev/null || exit 1
+    xorriso -osirrox on -indev bin/ipxe.iso -extract /IPXE.KRN ../../../INSTALL/ventoy/ipxe.krn >/dev/null || exit 1
 
     echo -e "\n===============SUCCESS===============\n"
 }
