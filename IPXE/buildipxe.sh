@@ -12,7 +12,7 @@ rm -rf ./ipxe-3fe683e/src/drivers
 cd ipxe-3fe683e/src
 
 echo '========= build IPXE =========='
-sh build.sh
+sh build.sh || exit 1
 
 cd ../../
 

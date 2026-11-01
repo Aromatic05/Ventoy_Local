@@ -7,8 +7,8 @@ RUN apt-get update && \
         acpica-tools autoconf autogen automake autopoint binutils bison bsdextrautils bzip2 ca-certificates ccache cpio \
         dos2unix dosfstools flex g++ gcc gcc-multilib gettext gnu-efi libdevmapper-dev \
         libfreetype6-dev libfuse-dev libmpfr-dev libpciaccess-dev libusb-1.0-0-dev \
-        genisoimage grub-common libc6-dev-i386 liblzma-dev libtool libxpm-dev lz4 make mtools nasm net-tools open-iscsi \
-        pkg-config python-is-python3 python3-distutils qemu-system-x86 qemu-utils rsync samba squashfs-tools \
+        genisoimage grub-common isolinux libc6-dev-i386 liblzma-dev libtool libxpm-dev lz4 make mtools nasm net-tools open-iscsi \
+        pkg-config python-is-python3 python3-distutils qemu-system-x86 qemu-utils rsync samba squashfs-tools syslinux-common \
         unzip uuid-dev wget xorriso xz-utils zip zlib1g-dev && \
     rm -rf /var/lib/apt/lists/*
 
