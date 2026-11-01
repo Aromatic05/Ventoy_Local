@@ -24,7 +24,7 @@ make distclean
 ./autogen.sh
 ./configure --disable-werror --with-platform=efi --prefix=$VT_GRUB_DIR/INSTALL/
 make -j 16 || exit 1
-sh install.sh  uefi
+sh install.sh  uefi || exit 1
 
 
 #build for i386-efi
@@ -33,7 +33,7 @@ make distclean
 ./autogen.sh
 ./configure --disable-werror --target=i386 --with-platform=efi --prefix=$VT_GRUB_DIR/INSTALL/
 make -j 16 || exit 1
-sh install.sh  i386efi
+sh install.sh  i386efi || exit 1
 
 
 
@@ -52,14 +52,14 @@ TARGET_OBJCOPY=aarch64-linux-gnu-objcopy \
 TARGET_STRIP=aarch64-linux-gnu-strip TARGET_NM=aarch64-linux-gnu-nm \
 TARGET_RANLIB=aarch64-linux-gnu-ranlib
 make -j 16 || exit 1
-sh install.sh arm64
+sh install.sh arm64 || exit 1
 
 
 #build for mips64el EFI
 #http://ftp.loongnix.org/os/loongnix-server/1.7/os/Source/SPackages/grub2-2.02-0.40.lns7.14.loongnix.src.rpm
 make distclean
 ./autogen.sh
-./configure --disable-werror --prefix=/home/share/Ventoy/GRUB2/INSTALL/ \
+./configure --disable-werror --prefix=$VT_GRUB_DIR/INSTALL/ \
 --target=mips64el --with-platform=efi \
 --host=x86_64-linux-gnu  \
 HOST_CC=x86_64-linux-gnu-gcc \
@@ -69,7 +69,7 @@ TARGET_OBJCOPY=mips-linux-gnu-objcopy \
 TARGET_STRIP=mips-linux-gnu-strip TARGET_NM=mips-linux-gnu-nm \
 TARGET_RANLIB=mips-linux-gnu-ranlib
 make -j 16 || exit 1
-sh install.sh mips64el
+sh install.sh mips64el || exit 1
 
 
 
@@ -79,7 +79,7 @@ make distclean
 ./autogen.sh
 ./configure --disable-werror --target=i386 --with-platform=pc --prefix=$VT_GRUB_DIR/INSTALL/
 make -j 16 || exit 1
-sh install.sh
+sh install.sh || exit 1
 
 
 

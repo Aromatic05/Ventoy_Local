@@ -838,7 +838,7 @@ fi
 # Given that floating point unit is disabled (if present to begin with)
 # when GRUB is running which may result in various hard crashes.
 #if test x"$platform" != xemu ; then
-if ( test x"$platform" != xemu && x"$platform" != mips64el-efi ) ; then
+if test "x$platform" != xemu && test "x$target_cpu-$platform" != xmips64el-efi; then
   AC_CACHE_CHECK([for options to get soft-float], grub_cv_target_cc_soft_float, [
     grub_cv_target_cc_soft_float=no
     if test "x$target_cpu" = xarm64; then
